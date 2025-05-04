@@ -1,0 +1,79 @@
+name: "Kevahu-Microservices-Sample"
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: SampleGateway/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - microservices-net
+    healthcheck:
+      test: exit 0
+      interval: 0s
+      timeout: 0s
+      retries: 0
+      start_period: 0s
+
+  orchestrator-payment:
+    build:
+      context: .
+      dockerfile: '.\SampleOrchestrator\Dockerfile + Payment'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  orchestrator-stock:
+    build:
+      context: .
+      dockerfile: '.\SampleOrchestrator\Dockerfile + Stock'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  orchestrator-payment-stock:
+    build:
+      context: .
+      dockerfile: '.\SampleOrchestrator\Dockerfile + Payment + Stock'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  web-orchestrator-files:
+    build:
+      context: .
+      dockerfile: '.\SampleWebOrchestrator\Dockerfile + Files'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  web-orchestrator-webshop:
+    build:
+      context: .
+      dockerfile: '.\SampleWebOrchestrator\Dockerfile + Webshop'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  web-orchestrator-webshop-files:
+    build:
+      context: .
+      dockerfile: '.\SampleWebOrchestrator\Dockerfile + Webshop + Files'
+    depends_on:
+      gateway:
+        condition: service_healthy
+    networks:
+      - microservices-net
+networks:
+  microservices-net:
+    driver: bridge

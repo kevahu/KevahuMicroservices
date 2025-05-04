@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Kevahu's Microservices - Core</Title>
+		<Authors>Kellian Van Hullebusch</Authors>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+		<PackageOutputPath>B:\src\Kevahu.Microservices\Samples\NugetPackages</PackageOutputPath>
+		<AssemblyVersion>2.0.10.0</AssemblyVersion>
+		<FileVersion>2.0.10.0</FileVersion>
+		<Version>$(AssemblyVersion)</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	<ProjectReference Include="..\Kevahu.Microservices.Orchestrator\Kevahu.Microservices.Orchestrator.csproj" />
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+</Project>

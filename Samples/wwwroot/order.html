@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- other css links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Webshop | Order</title>
+  </head>
+  <body>
+    <!-- header with back to home -->
+    <nav class="navbar navbar-light bg-light mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="/"><i class="bi bi-arrow-left"></i> Back to Shop</a>
+      </div>
+    </nav>
+
+    <main class="container">
+        <div class="row">
+            <!-- order details -->
+            <div class="col-md-6">
+                <h2>Order Summary</h2>
+                <ul id="order-items" class="list-group mb-3">
+                    <!-- Order items will be loaded here -->
+                </ul>
+                <h4>Total: $<span id="order-total">0.00</span></h4>
+            </div>
+
+            <!-- payment form -->
+            <div class="col-md-6">
+                <h2>Payment Details</h2>
+                <form id="payment-form">
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <!-- Basic validation: 13-19 digits -->
+                        <input type="text" class="form-control" id="cardNumber" required pattern="\d{13,19}" title="Please enter a valid card number (13-19 digits)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cardHolderName" class="form-label">Card Holder Name</label>
+                        <input type="text" class="form-control" id="cardHolderName" required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="cardExpiryDate" class="form-label">Expiry Date (MM/YY)</label>
+                            <!-- Basic validation: MM/YY format -->
+                            <input type="text" class="form-control" id="cardExpiryDate" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/\d{2}" title="Please enter date in MM/YY format">
+                        </div>
+                        <div class="col">
+                            <label for="cardCVV" class="form-label">CVV</label>
+                            <!-- Basic validation: 3-4 digits -->
+                            <input type="text" class="form-control" id="cardCVV" required pattern="\d{3,4}" title="Please enter a 3 or 4 digit CVV">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Template for order items -->
+    <template id="order-item-template">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <span class="order-item-title">Item Title (x1)</span>
+                <br>
+                <small class="text-muted">$<span class="order-item-price-each">0.00</span> each</small>
+            </div>
+            <div>
+                <strong class="order-item-price-total">$0.00</strong>
+                <button class="btn btn-sm btn-outline-danger ms-2 remove-item-btn" data-item-id="">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </li>
+    </template>
+
+    <!-- Payment Status Modal -->
+    <div class="modal fade" id="paymentStatusModal" tabindex="-1" aria-labelledby="paymentStatusModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentStatusModalLabel">Payment Status</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="paymentStatusBody">
+            <!-- Status message here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modalCloseButton">Close</button>
+            <a href="/" class="btn btn-primary" id="modalHomeButton" style="display: none;">Back to Shop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- other script sources -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/payment.js"></script>
+    <script src="/js/order.js"></script>
+  </body>
+</html>
