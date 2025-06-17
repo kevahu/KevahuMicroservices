@@ -14,7 +14,7 @@
 
 	<PropertyGroup>
 		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
-		<PackageOutputPath>B:\src\Kevahu.Microservices\Samples\NugetPackages</PackageOutputPath>
+		<PackageOutputPath>..\Samples\NugetPackages</PackageOutputPath>
 		<AssemblyVersion>3.0.10.0</AssemblyVersion>
 		<FileVersion>3.0.10.0</FileVersion>
 		<Version>$(AssemblyVersion)</Version>
