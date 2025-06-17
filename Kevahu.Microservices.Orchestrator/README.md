@@ -118,6 +118,6 @@ Refer to these related READMEs for more context:
 
 -   [Core Library README](../Kevahu.Microservices.Core/README.md): Details on RPC, security, serialization, and defining services (`[RpcInterface]`, `[RpcImplementation]`).
 -   [Gateway README](../Kevahu.Microservices.Gateway/README.md): Understanding the HTTP entry point, mesh coordination, and Gateway configuration.
--   [Web Orchestrator README](./Kevahu.Microservices.Orchestrator.Web/README.md): Use this specialized orchestrator if your services need to host or interact directly with ASP.NET Core web features (APIs, MVC controllers, static files).
+-   [Web Orchestrator README](../Kevahu.Microservices.Orchestrator.Web/README.md): Use this specialized orchestrator if your services need to host or interact directly with ASP.NET Core web features (APIs, MVC controllers, static files).
 
 ---

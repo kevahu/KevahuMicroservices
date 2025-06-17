@@ -255,12 +255,9 @@ Service lifetimes behave differently in a distributed RPC environment compared t
 
 With your service interfaces and implementations defined, you are ready to host them within other applications or continue to set up your microservices application:
 
-*   **Gateway:** Configure the central entry point and mesh coordinator.
-    *   [Gateway README](../Kevahu.Microservices.Gateway/README.md)
-*   **Orchestrator:** Learn how to host your service implementation libraries (`.dll` files) in a standard orchestrator process.
-    *   [Orchestrator README](../Kevahu.Microservices.Orchestrator/README.md)
-*   **Web Orchestrator:** If your services need to interact with or host web components (APIs, MVC), use the specialized Web Orchestrator.
-    *   [Web Orchestrator README](../Kevahu.Microservices.Orchestrator.Web/README.md)
+-    [Gateway README](../Kevahu.Microservices.Gateway/README.md): Configure the central entry point and mesh coordinator.
+-   [Orchestrator README](../Kevahu.Microservices.Orchestrator/README.md): Learn how to host your service implementation libraries (`.dll` files) in a standard orchestrator process.
+-   [Web Orchestrator README](../Kevahu.Microservices.Orchestrator.Web/README.md): If your services need to interact with or host web components (APIs, MVC), use the specialized Web Orchestrator.
 
 These guides provide details on configuring the necessary security keys, registering service assemblies, connecting orchestrators to the gateway, and running the complete microservices application.
 
