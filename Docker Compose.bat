@@ -1,5 +1,6 @@
 @echo off
 echo Restoring Kevahu.Microservices...
+mkdir .\Samples\NugetPackages
 dotnet restore .\Kevahu.Microservices.Core\Kevahu.Microservices.Core.csproj > nul 2>&1
 dotnet restore .\Kevahu.Microservices.Gateway\Kevahu.Microservices.Gateway.csproj > nul 2>&1
 dotnet restore .\Kevahu.Microservices.Orchestrator\Kevahu.Microservices.Orchestrator.csproj > nul 2>&1
